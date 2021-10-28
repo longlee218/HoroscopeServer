@@ -1,0 +1,182 @@
+type Card {
+    thien_ban: LapThienBan,
+    thap_nhi_cung: [CungDiaBan]
+}
+
+type LapThienBan {
+    gioiTinh: Int!,
+    namNu: String!,
+    chiGioSinh: chiGioSinh,
+    canGioSinh: Int!,
+    gioSinh: String!,
+    timeZone: Int,
+    today: String!,
+    ngayDuong: Int!,
+    thangDuong: Int!,
+    namDuong: Int!,
+    ten: String!,
+    ngayAm: Int!,
+    thangAm: Int!,
+    namAm: Int!,
+    thangNhuan: Int!,
+    canThang: Int!,
+    canNam: Int!,
+    chiNam: Int!,
+    chiThang: Int!,
+    canThangTen: String!,
+    canNamTen: String!,
+    chiThangTen: String!,
+    chiNamTen: String!,
+    canNgay: Int,
+    chiNgay: Int,
+    canNgayTen: String!,
+    chiNgayTen: String!,
+    amDuongNamSinh: String!,
+    amDuongMenh: String!,
+    hanhCuc: Int,
+    tenCuc: String!,
+    menhChu: String!,
+    thanChu: String!,
+    menh: String!,
+    sinhKhac: String!,
+    banMenh: String!
+}
+
+type CungDiaBan {
+    cungSo: Int,
+    hanhCung: String,
+    cungSao: [Sao],
+    cungAmDuong: String,
+    cungTen: String,
+    cungThan: Boolean,
+    cungChu: String,
+    cungDaiHan: Int,
+    cungTieuHan: String
+}
+
+type Horoscope {
+    id: String!,
+    title: String!,
+    description: String!
+    alias_yy: String!
+    alias_hh: String!
+    alias_dd: Int!
+    alias_mm: Int!
+    create_at: String!
+    explain: Explains!,
+    horoscope: HoroscopeCard!
+}
+
+type Explains {
+    tong_quan: [Explain],
+    giai_doan__chung: [Explain],
+    loi_khuyen_ung_xu: [Explain],
+    cung_menh: [Explain],
+    cung_than: [Explain],
+    cung_quan_loc: [Explain],
+    cung_tai_bach: [Explain],
+    cung_thien_di: [Explain],
+    cung_phuc_duc: [Explain],
+    cung_phu_the: [Explain],
+    cung_tu_tuc: [Explain],
+    cung_dien_trach: [Explain],
+    cung_tat_ach: [Explain],
+    cung_phu_mau: [Explain],
+    cung_huynh_de: [Explain],
+    cung_no_boc: [Explain],
+}
+
+type HoroscopeCard {
+    destiny: DestinyHoroscopeCard,
+    info: InfoHoroscopeCard
+}
+
+type Explain {
+    reason: String!,
+    result: String!,
+    refer: String
+}
+
+type DestinyHoroscopeCard {
+    _0: CurrentDestiny!
+    _1: CurrentDestiny!
+    _2: CurrentDestiny!
+    _3: CurrentDestiny!
+    _4: CurrentDestiny!
+    _5: CurrentDestiny!
+    _6: CurrentDestiny!
+    _7: CurrentDestiny!
+    _8: CurrentDestiny!
+    _9: CurrentDestiny!
+    _10: CurrentDestiny!
+    _11: CurrentDestiny!
+    _12: CurrentDestiny!
+}
+
+type CurrentDestiny {
+    name: String,
+    slug: String,
+    has_main_star: Boolean,
+    is_body_horoscope: Boolean,
+    position: String,
+    fortune: Int,
+    main_star: [CoreStar],
+    good_star: [CoreStar],
+    bad_star: [CoreStar],
+    year_destiny: String,
+    circle_life: CoreStar,
+    month_destiny: CoreStar
+}
+
+type InfoHoroscopeCard {
+    year: CoreStar,
+    month: CoreStar,
+    day: CoreStar,
+    hour: CoreStar,
+    gender: CoreStar,
+    _cuc: CoreStar,
+    _than_cu: CoreStar,
+    _menh_chu: CoreStar,
+    _than_chu: CoreStar,
+    _diem_huyen_khi: CoreStar,
+    _diem_cung_khi: CoreStar,
+    _lai_nhan_cung: CoreStar,
+    _nguyen_than: CoreStar,
+}
+
+type CoreStar {
+    name: String!,
+    slug: String!,
+    position: String,
+    five_basic_el: String
+}
+
+type chiGioSinh {
+    id: Int!,
+    tenChi: String!,
+    tenHanh: String!,
+    menhChu: String!,
+    thanChu: String!,
+    amDuong: Int!
+}
+
+type Sao {
+    saoID: Int!,
+    saoTen: String!,
+    saoNguHanh: String!,
+    saoLoai: Int!,
+    saoPhuongVi: String!,
+    saoAmDuong: Int!,
+    vongTrangSinh: Int!,
+    cssSao: String,
+    saoDacTinh: String
+}
+
+type Query {
+    horoscopes(limit: Int, offset: Int): [Horoscope]
+    horoscopeType(type: String!, value: String!, limit: Int, offset: Int): [Horoscope],
+    horoscopeSolar(gd: Int!, dd: Int!, mm: Int!,yy: Int!, _hh: Int!, timezone: Int): Horoscope,
+    horoscopeLunar(gd: Int!, _dd: Int!, _mm: Int!, _can: String!, _chi: String!, _hh: Int!): Horoscope,
+    horoscopeId(id: String!): Horoscope,
+    horoscopeCard(date: Int!, month:Int!, year:Int!, hour:String!, gender:Int!, isSolar:Boolean, timezone:Int, fullName: String!): Card
+}

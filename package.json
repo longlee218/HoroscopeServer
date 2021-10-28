@@ -1,0 +1,45 @@
+{
+  "name": "src_horo2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-tools/load-files": "^6.5.1",
+    "@graphql-tools/schema": "^8.2.0",
+    "apollo-server": "^3.3.0",
+    "apollo-server-core": "^3.3.0",
+    "apollo-server-errors": "^3.2.0",
+    "apollo-server-express": "^3.3.0",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "boom": "^7.3.0",
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "couchbase": "^3.2.2",
+    "debug": "^4.3.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.6.1",
+    "graphql-tools": "^8.2.0",
+    "joi": "^17.4.2",
+    "mathjs": "^9.5.1",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "nano": "^9.0.5",
+    "nodemon": "^2.0.13",
+    "ottoman": "^2.0.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@graphql-tools/merge": "^8.1.2"
+  }
+}
